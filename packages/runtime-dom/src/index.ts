@@ -64,6 +64,8 @@ export const hydrate = ((...args) => {
 }) as RootHydrateFunction
 
 export const createApp = ((...args) => {
+  // ensureRenderer()创建渲染器
+  debugger
   const app = ensureRenderer().createApp(...args)
 
   if (__DEV__) {
@@ -73,6 +75,7 @@ export const createApp = ((...args) => {
 
   const { mount } = app
   app.mount = (containerOrSelector: Element | ShadowRoot | string): any => {
+    // 容器
     const container = normalizeContainer(containerOrSelector)
     if (!container) return
 
